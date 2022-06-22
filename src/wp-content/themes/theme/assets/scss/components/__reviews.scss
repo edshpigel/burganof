@@ -1,0 +1,173 @@
+.reviews {
+    @include media-breakpoint-up(lg) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    .btn-load-more {
+        margin-top: 0;
+    }
+}
+
+.review-product {
+    position: relative;
+    border: 1px solid #e3e3e3;
+    padding: 10px;
+    @include media-breakpoint-down(md) {
+        padding: 7px;
+    }
+    &:not(:last-child) {
+        margin-bottom: 30px;
+    }
+    &__grid {
+        display: grid;
+        @include media-breakpoint-up(xlg) {
+            grid-template-columns: minmax(350px, 500px) minmax(350px, 1fr);
+            gap: 22px;
+        }
+        @include media-breakpoint-up(lg) {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 22px;
+        }
+        @include media-breakpoint-down(md) {
+            grid-template-columns: repeat(minmax(300px, 1fr));
+            gap: 12px;
+        }
+    }
+    &__group {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        > * {
+        }
+        > *:first-child {
+            flex-grow: 1;
+            position: relative;
+            padding-top: 50%;
+        }
+        & > *:last-child {
+            align-self: stretch;
+        }
+    }
+    &__swiper {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+        inset: 0 0 0 0;
+        overflow: hidden;
+        padding: 0;
+        z-index: 1;
+        flex-grow: 1;
+        .swiper-slide {
+            a {
+                height: 100%;
+                width: 100%;
+                position: relative;
+                display: flex;
+                align-items: center;
+                img {
+                    position: absolute;
+                    inset: 0 0 0 0;
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+        }
+    }
+    &__thumbs {
+        overflow: hidden;
+        width: 60px;
+        min-width: 60px;
+        height: 100%;
+        margin-left: 10px;
+        .swiper-slide {
+            cursor: pointer;
+            min-height: 35px;
+            &:not(.swiper-slide-thumb-active):hover {
+                a {
+                    img {
+                        transform: scaleX(0.9) scaleY(0.85);
+                    }
+                }
+            }
+            &.swiper-slide-thumb-active {
+                a {
+                    border: 1px solid #f03636;
+                    img {
+                        transform: scaleX(0.9) scaleY(0.85);
+                    }
+                }
+            }
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $white;
+                transition: $trsn;
+            }
+            img {
+                max-height: 100%;
+                transition: $trsn;
+            }
+        }
+    }
+    &__content {
+        @include media-breakpoint-up(xl) {
+            margin-left: 25px;
+            padding-left: 25px;
+        }
+        @include media-breakpoint-up(lg) {
+            margin-left: 10px;
+            padding-left: 10px;
+        }
+        &__title {
+            font-weight: bold;
+            @include media-breakpoint-down(xs) {
+                font-size: 18px;
+            }
+        }
+        &__desc {
+            color: $primary-1;
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 17px;
+        }
+        &__text {
+            font-size: 16px;
+            line-height: 1.4;
+            color: #858585;
+        }
+        svg {
+            float: right;
+        }
+    }
+}
+
+.m-review {
+    max-width: 1000px !important;
+    width: 95% !important;
+    margin: 0 !important;
+    margin: 35px 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    .review-product:not(:last-child) {
+        margin-bottom: 0;
+    }
+    .fancybox-close-small {
+        right: 0;
+        top: 0;
+        bottom: 100%;
+        transform: translateY(-100%);
+        svg {
+            path {
+                fill: $white;
+            }
+        }
+    }
+}

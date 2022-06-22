@@ -1,0 +1,312 @@
+.modal-form {
+    max-width: 818px !important;
+    width: 95% !important;
+    margin: 25px 0 !important;
+    @include media-breakpoint-up(lg) {
+        padding: 34px 47px !important;
+    }
+    @include media-breakpoint-up(sm) {
+        padding: 20px 25px !important;
+    }
+    @include media-breakpoint-up(xs) {
+        padding: 16px 21px !important;
+    }
+    h2,
+    h3 {
+        font-weight: bold;
+        @include media-breakpoint-up(xl) {
+            font-size: 28px;
+        }
+    }
+    [data-fancybox-close] {
+        cursor: pointer;
+        display: flex;
+        float: right;
+        padding: 15px;
+        transform: translate(15px, -15px);
+        &:before {
+            height: 100%;
+            height: 25px;
+            width: 25px;
+            display: block;
+            min-width: 25px;
+            width: 100%;
+            content: "";
+            opacity: 0.6;
+            background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M29 29L1 1M1 29L29 1L1 29Z' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 70%;
+        }
+    }
+    &-desc {
+
+        @include media-breakpoint-up(md) {
+            margin-bottom: 30px;
+        }
+        @include media-breakpoint-up(xs) {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+    .flex-form {
+        .flex-form-item {
+            label {
+                input[type="text"],
+                input[type="tel"],
+                input[type="email"] {
+                    border: 1px solid $white-primary;
+                }
+            }
+        }
+    }
+}
+
+.flex-form {
+    display: flex;
+    align-items: stretch;
+    margin: 0 -10px 0 -10px;
+    br {
+        display: none;
+    }
+    @include media-breakpoint-down(sm) {
+        flex-wrap: wrap;
+    }
+    &.btns-flex-form {
+        align-items: center;
+        margin: 0;
+        @include media-breakpoint-down(lg) {
+            flex-wrap: wrap;
+        }
+        > * {
+            margin-bottom: 15px;
+        }
+        button {
+            white-space: nowrap;
+            margin-right: 23px;
+        }
+    }
+    .flex-form-item {
+        width: 100%;
+        padding: 0 10px 20px 10px;
+        flex-grow: 1;
+        flex-basis: 0;
+        min-width: 220px;
+        button {
+            white-space: nowrap;
+        }
+        .your_policy {
+            display: block;
+            > * {
+                display: block;
+            }
+            input {
+                display: none;
+            }
+            label {
+                cursor: pointer;
+                .wpcf7-list-item-label {
+                    font-size: 13px;
+                    color: $black;
+                    display: flex;
+                    align-items: center;
+                    &:before {
+                        content: "";
+                        display: inline-block;
+                        margin-right: 12px;
+                        height: 19px;
+                        width: 19px;
+                        min-width: 19px;
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px'%3E%3Cpath fill-rule='evenodd' fill='rgb(165, 183, 199)' d='M10.000,19.500 C4.762,19.500 0.500,15.238 0.500,10.000 C0.500,4.761 4.762,0.500 10.000,0.500 C15.238,0.500 19.500,4.761 19.500,10.000 C19.500,15.238 15.238,19.500 10.000,19.500 ZM10.000,1.962 C5.568,1.962 1.961,5.568 1.961,10.000 C1.961,14.432 5.568,18.038 10.000,18.038 C14.432,18.038 18.038,14.432 18.038,10.000 C18.038,5.568 14.432,1.962 10.000,1.962 Z'/%3E%3C/svg%3E");
+                    }
+                }
+                input:checked {
+                    ~ .wpcf7-list-item-label {
+                        &:before {
+                            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='19px'%3E%3Cpath fill-rule='evenodd' fill='rgb(0, 84, 164)' d='M10.000,19.000 C4.762,19.000 0.500,14.738 0.500,9.500 C0.500,4.261 4.762,-0.000 10.000,-0.000 C15.238,-0.000 19.500,4.261 19.500,9.500 C19.500,14.738 15.238,19.000 10.000,19.000 ZM10.000,1.462 C5.568,1.462 1.961,5.068 1.961,9.500 C1.961,13.932 5.568,17.538 10.000,17.538 C14.432,17.538 18.038,13.932 18.038,9.500 C18.038,5.068 14.432,1.462 10.000,1.462 ZM9.165,12.952 C9.023,13.087 8.842,13.154 8.660,13.154 C8.478,13.154 8.297,13.087 8.156,12.952 L5.476,10.394 C5.184,10.115 5.174,9.653 5.452,9.361 C5.730,9.068 6.193,9.058 6.485,9.337 L8.660,11.412 L13.515,6.779 C13.806,6.500 14.270,6.511 14.548,6.803 C14.826,7.095 14.816,7.557 14.524,7.836 L9.165,12.952 Z'/%3E%3C/svg%3E");
+                        }
+                    }
+                }
+            }
+        }
+        label {
+            border: 1px solid transparent;
+            display: block;
+            transition: $trsn;
+            &.your_name_label {
+                position: relative;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    right: 26px;
+                    height: 100%;
+                    top: 0;
+                    bottom: 0;
+                    width: 20px;
+                    background-position: center;
+                    background-size: auto;
+                    background-repeat: no-repeat;
+                    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 12.5C12.7614 12.5 15 10.2614 15 7.5C15 4.73858 12.7614 2.5 10 2.5C7.23858 2.5 5 4.73858 5 7.5C5 10.2614 7.23858 12.5 10 12.5Z' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2.42102 16.8743C3.18943 15.5442 4.29431 14.4398 5.62468 13.672C6.95505 12.9042 8.46405 12.5 10.0001 12.5C11.5361 12.5 13.0451 12.9043 14.3755 13.6721C15.7058 14.44 16.8107 15.5444 17.5791 16.8744' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+                }
+            }
+            &.your_tel_label {
+                position: relative;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    right: 26px;
+                    height: 100%;
+                    top: 0;
+                    bottom: 0;
+                    width: 20px;
+                    background-position: center;
+                    background-size: auto;
+                    background-repeat: no-repeat;
+                    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.22471 9.75109C7.87302 11.0765 8.94739 12.146 10.2758 12.7883C10.3729 12.8343 10.4804 12.8543 10.5877 12.8462C10.6949 12.838 10.7982 12.8021 10.8874 12.742L12.8433 11.4377C12.9298 11.3801 13.0293 11.3449 13.1328 11.3354C13.2364 11.3259 13.3407 11.3423 13.4362 11.3833L17.0954 12.9515C17.2197 13.0043 17.3234 13.096 17.3911 13.213C17.4587 13.3299 17.4865 13.4656 17.4702 13.5997C17.3546 14.5047 16.913 15.3365 16.2282 15.9394C15.5434 16.5422 14.6624 16.8748 13.75 16.8749C10.9321 16.8749 8.22956 15.7555 6.23699 13.7629C4.24442 11.7703 3.125 9.06782 3.125 6.24989C3.12505 5.33753 3.45765 4.45647 4.06053 3.77167C4.66341 3.08688 5.49523 2.64531 6.40023 2.52966C6.53431 2.51343 6.67002 2.54122 6.78693 2.60883C6.90384 2.67644 6.99561 2.78022 7.04841 2.90452L8.61798 6.56685C8.65858 6.66158 8.67512 6.76488 8.66614 6.86755C8.65715 6.97022 8.62291 7.06908 8.56647 7.15531L7.26676 9.14123C7.2076 9.23056 7.17263 9.33372 7.16526 9.44061C7.15789 9.5475 7.17837 9.65448 7.22471 9.75109V9.75109Z' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+                }
+            }
+            border-radius: 60px;
+            &:hover {
+                box-shadow: 3px 3px 25px rgba(0, 0, 0, 0.05);
+            }
+            &.input--onfocus {
+                .label-span {
+                    color: #a3a7b4;
+                }
+            }
+            &.label--error {
+                border-color: $red;
+                .label-span {
+                    &[aria-label-error*="Введите"] {
+                        text-transform: lowercase;
+                    }
+                    &:before {
+                        text-transform: capitalize;
+                        opacity: 1;
+                        visibility: visible;
+                        float: none;
+                        order: -1;
+                    }
+                }
+            }
+            .label-span {
+                font-size: 12px;
+                color: #b0b8c7;
+                white-space: nowrap;
+                transition: $trsn;
+                display: inline-flex;
+                align-items: flex-start;
+                &:before {
+                    content: attr(aria-label-error);
+                    opacity: 0;
+                    visibility: hidden;
+                    order: 100;
+                    margin-right: 4px;
+                }
+            }
+            input[type="text"],
+            input[type="tel"],
+            input[type="email"] {
+                font-size: 16px;
+                background: transparent;
+                transition: $trsn;
+                min-width: auto;
+                width: 100%;
+                max-width: none;
+                appearance: none;
+                padding: 0;
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+                color: $color-text;
+                border-radius: 60px;
+                background-color: $white;
+                @include media-breakpoint-up(lg) {
+                    padding: 23px 29px;
+                }
+                @include media-breakpoint-down(md) {
+                    padding: 17px 25px;
+                }
+                &::placeholder {
+                }
+            }
+        }
+    }
+}
+
+.your_policy {
+    display: block;
+    > * {
+        display: block;
+    }
+    input {
+        display: none;
+    }
+    .wpcf7-list-item {
+        margin: 0;
+    }
+    label {
+        cursor: pointer;
+        .wpcf7-list-item-label {
+            font-size: 13px;
+            color: #b0b8c7;
+            display: flex;
+            align-items: center;
+            a {
+                color: inherit;
+                color: #b0b8c7;
+                &:hover {
+                    color: $primary-1;
+                    border-bottom-color: $primary-1;
+                }
+            }
+            &:before {
+                content: "";
+                display: inline-block;
+                margin-right: 12px;
+                height: 16px;
+                width: 16px;
+                min-width: 16px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: auto;
+                background-color: $color-text;
+                border-radius: 50%;
+            }
+        }
+        input:checked {
+            ~ .wpcf7-list-item-label {
+                &:before {
+                    background-image: url("data:image/svg+xml,%3Csvg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.4375 1.125L3.85414 5.5L1.5625 3.3125' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+                }
+            }
+        }
+    }
+}
+
+.form-policy {
+    display: flex;
+    align-items: center;
+    a {
+        color: inherit;
+        border-bottom: 1px solid #a3a7b4;
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+.text-policy-modal {
+    p {
+        margin-bottom: 1em;
+    }
+}
+
+form.unaccepted {
+    .wpcf7-response-output {
+        border-color: #e64c4c !important;
+        border-width: 1px;
+        margin: 0;
+        display: block !important;
+    }
+}

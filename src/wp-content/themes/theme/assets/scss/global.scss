@@ -1,0 +1,34 @@
+// Vars site
+@import "__vars";
+// Custom functions bootstrap
+@import "vendor/bootstrap/bootstrap-functions";
+// Fancybox css
+@import "vendor/fancybox.min";
+// main site styles
+@import "__main";
+
+// ========================================================
+// Import SCSS
+// ========================================================
+@import "components/__header";
+@import "components/__footer";
+
+@import "components/__hero";
+@import "components/__profits-1";
+@import "components/__kitchen";
+@import "components/__project";
+@import "components/__populars";
+@import "components/__quiz";
+@import "components/__projects";
+@import "components/__production";
+@import "components/__profits-2";
+@import "components/__reviews";
+@import "components/__k-sales";
+@import "components/__block-form";
+@import "components/__faq";
+@import "components/__insta";
+// ========================================================
+// Other components import SCSS
+// ========================================================
+@import "components/__modals";
+@import "components/__to-top";

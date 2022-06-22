@@ -1,0 +1,118 @@
+.hero {
+    &__group {
+        background-color: $white-primary;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .swiper-btns {
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 48px;
+            }
+            @include media-breakpoint-down(md) {
+                display: none;
+            }
+            justify-content: flex-end;
+            right: auto;
+            left: auto;
+            width: 100%;
+            z-index: 10;
+            & > * {
+                transform: translateY(-100%);
+            }
+        }
+        @each $breakpoint, $container-max-width in $container-max-widths {
+            @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+                .swiper-btns {
+                    max-width: $container-max-width;
+                }
+            }
+        }
+    }
+    &__swiper {
+        overflow: hidden;
+        position: relative;
+        z-index: 10;
+    }
+    &__item {
+        height: auto;
+        position: relative;
+        overflow: hidden;
+        z-index: 15;
+        &__grid {
+            display: grid;
+            @include media-breakpoint-up(lg) {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                gap: 1px;
+            }
+            @include media-breakpoint-up(xs) {
+                grid-template-columns: repeat(minmax(300px, 1fr));
+                gap: 30px;
+            }
+        }
+        &__content {
+            position: relative;
+            z-index: 15;
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 130px;
+            }
+            @include media-breakpoint-up(xs) {
+                margin-bottom: 80px;
+            }
+            &__text {
+                margin-bottom: 30px;
+            }
+            .btn {
+                margin-right: 20px;
+                margin-bottom: 20px;
+            }
+            @include media-breakpoint-down(md) {
+                color: $white;
+                .btn--outline {
+                    color: $white;
+                }
+            }
+            @include media-breakpoint-down(sm) {
+                .btn {
+                    width: 100%;
+                }
+                h1 {
+                    .primary-bg-color-wysiwyg {
+                        &:last-child {
+                            background-color: transparent;
+                            position: relative;
+                            display: block;
+                            max-width: 11ch;
+                            &:after {
+                                content: "";
+                                display: block;
+                                position: absolute;
+                                inset: 0 0 0 -15px;
+                                z-index: -1;
+                                background-color: $primary-1;
+                            }
+                        }
+                    }
+                }
+                .btn--outline {
+                    padding-top: 16px;
+                    padding-bottom: 16px;
+                }
+            }
+        }
+        &__bg {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 300px;
+            margin-right: -16vw;
+            @include media-breakpoint-down(md) {
+                position: absolute;
+                inset: 0 0 0 0;
+                z-index: -2;
+                filter: brightness(0.5);
+                transform: translateZ(0) !important;
+            }
+        }
+    }
+}

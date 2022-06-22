@@ -1,0 +1,28 @@
+.populars {
+    @include media-breakpoint-up(lg) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    &__heading {
+        margin-bottom: 40px;
+    }
+    &__grid {
+        display: grid;
+        @include media-breakpoint-up(lg) {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+        }
+        @include media-breakpoint-up(xs) {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        @include media-breakpoint-down(sm) {
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 8px;
+        }
+    }
+}

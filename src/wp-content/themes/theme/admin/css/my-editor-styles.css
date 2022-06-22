@@ -1,0 +1,21 @@
+* {
+    font-family: "Montserrat", sans-serif, Arial, Helvetica, sans-serif;
+}
+h3, h4, h5, h6 {
+    font-weight: normal;
+}
+.primary-color-wysiwyg {
+    color: #F03636;
+}
+.text-color-wysiwyg {
+    color: #858585;
+}
+.green-color-wysiwyg {
+    color: #4EBA45;
+}
+.primary-bg-color-wysiwyg {
+    background-color: #F03636;
+    color: white;
+    margin: 0 -7px;
+    padding: 0 7px;
+}

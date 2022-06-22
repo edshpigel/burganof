@@ -1,0 +1,356 @@
+.quiz {
+    @include media-breakpoint-up(lg) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    &__heading {
+        margin-bottom: 20px;
+    }
+    &__wrapper {
+        border: 24px solid #f4f4f4;
+        @include media-breakpoint-down(sm) {
+            border-width: 12px;
+        }
+        form {
+            margin: 6px;
+            border: 1px solid $primary-1;
+        }
+        .quiz-slide {
+            @include media-breakpoint-up(xlg) {
+                padding: 37px 49px;
+            }
+            @include media-breakpoint-up(lg) {
+                padding: 25px 32px;
+            }
+            @include media-breakpoint-up(sm) {
+                padding: 15px 20px;
+            }
+            @include media-breakpoint-up(xs) {
+                padding: 10px 15px;
+            }
+            display: none;
+            &.active {
+                display: block;
+            }
+            &.quiz-slide-submit {
+                position: relative;
+                background-color: $white-primary;
+                .quiz-slide-submit-grid {
+                    @include media-breakpoint-up(lg) {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                        gap: 15px;
+                    }
+                }
+                @include media-breakpoint-only(lg) {
+                    .flex-form {
+                        flex-wrap: wrap;
+                    }
+                }
+                .quiz-slide-submit-item {
+                    .quiz-slide-submit-item-img {
+                        top: 0;
+                        right: 0;
+                        width: calc(50% - 15px);
+                        bottom: 0;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                        max-width: 100%;
+                        position: absolute;
+                        @include media-breakpoint-down(md) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__navs {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 52px;
+        @include media-breakpoint-down(md) {
+            margin-top: 32px;
+            flex-wrap: wrap;
+            > div:first-child {
+                margin-bottom: 15px;
+            }
+        }
+        .btn {
+            cursor: pointer;
+            @include media-breakpoint-up(lg) {
+                padding: 19px 24px;
+                font-size: 16px;
+            }
+            @include media-breakpoint-up(xs) {
+                font-size: 16px;
+                padding: 12px 19px;
+            }
+            @include media-breakpoint-down(md) {
+                margin-bottom: 8px;
+            }
+        }
+        .btn-back {
+            background-color: $white-primary;
+            color: #bbbbbb;
+            @include media-breakpoint-up(lg) {
+                margin-right: 15px;
+            }
+            @include media-breakpoint-up(xs) {
+                margin-right: 10px;
+            }
+            &:hover {
+                background-color: #e3e3e3;
+            }
+        }
+        .btn-next {
+            display: inline-flex;
+            align-items: center;
+            @include media-breakpoint-up(lg) {
+                padding: 15.5px 24px;
+                font-size: 16px;
+            }
+            @include media-breakpoint-up(xs) {
+                font-size: 16px;
+                padding: 8.5px 19px;
+            }
+            svg {
+                margin-left: 20px;
+                @include media-breakpoint-down(md) {
+                    margin-left: 12px;
+                }
+            }
+            &.disabled {
+                opacity: 0.6;
+            }
+        }
+    }
+    &__slide {
+        &__heading {
+            h3 {
+                margin-bottom: 0.3em;
+            }
+            margin-bottom: 41px;
+            @include media-breakpoint-down(md) {
+                margin-bottom: 15px;
+            }
+        }
+        label {
+            cursor: pointer;
+            &.none-img {
+                .quiz__slide__text {
+                    @include media-breakpoint-down(xs) {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                    }
+                    &:before {
+                        content: "";
+                        display: inline-flex;
+                        height: 15px;
+                        width: 15px;
+                        min-width: 15px;
+                        margin-right: 5px;
+                        border-radius: 50%;
+                        border: 3px solid $primary-1;
+                        background-color: $white;
+                        transition: $trsn;
+                        transform: translateY(-1px);
+                        @include media-breakpoint-down(xs) {
+                            width: 12px;
+                            height: 12px;
+                            min-width: 12px;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+        & &__input {
+            display: none;
+            &:checked {
+                ~ .quiz__slide__img {
+                    &:before {
+                        border: 10px solid $primary-1;
+                        @include media-breakpoint-down(sm) {
+                            border-width: 7px;
+                        }
+                    }
+                }
+                ~ .quiz__slide__text {
+                    color: $black;
+                    &:before {
+                        background-color: $primary-1;
+                    }
+                }
+            }
+        }
+        &__img {
+            padding-top: 74%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            margin-bottom: 16px;
+            &:before {
+                content: "";
+                position: absolute;
+                inset: 0 0 0 0;
+                border: 10px solid transparent;
+                transition: $trsn;
+                @include media-breakpoint-down(sm) {
+                    border-width: 7px;
+                }
+            }
+        }
+        &__text {
+            font-size: 16px;
+            @include media-breakpoint-down(sm) {
+                font-size: 14px;
+            }
+            @include media-breakpoint-down(xs) {
+                font-size: 12px;
+            }
+            color: #bbbbbb;
+            transition: $trsn;
+            font-weight: bold;
+        }
+    }
+    &__label-grid {
+        display: grid;
+        @include media-breakpoint-up(lg) {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        @include media-breakpoint-up(xs) {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        @include media-breakpoint-down(sm) {
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 8px;
+        }
+        @include media-breakpoint-down(xs) {
+            grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+            gap: 7px;
+        }
+    }
+    &__line {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0 20px;
+        position: relative;
+        background-color: #e9e9e9;
+        border-radius: 10px;
+        flex-grow: 1;
+        height: 8px;
+        @include media-breakpoint-down(md) {
+            width: calc(100% - 140px);
+            margin: 0 20px 0 0;
+        }
+        @include media-breakpoint-down(sm) {
+            width: calc(100% - 60px);
+            margin-right: 10px;
+        }
+        &__in {
+            height: 100%;
+            background-color: $primary-1;
+            border-radius: 10px;
+        }
+        &__dotted {
+            position: absolute;
+            z-index: -1;
+            height: 58px;
+            width: 1px;
+            background: linear-gradient(180deg, rgba(225, 225, 225, 0) 0%, #e1e1e1 50%, rgba(225, 225, 225, 0) 100%);
+        }
+    }
+    &__sale {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding-bottom: 16px;
+        @include media-breakpoint-down(sm) {
+            bottom: auto;
+            top: 0;
+            padding-bottom: 0;
+            padding-top: 16px;
+        }
+        &:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            background-color: $primary-1;
+            border-radius: 50%;
+            height: 14px;
+            width: 14px;
+            bottom: 0;
+            transform: translateX(-6px) translateY(4px);
+            @include media-breakpoint-down(sm) {
+                transform: translateX(-6px) translateY(-4px);
+                bottom: auto;
+                top: 0;
+            }
+        }
+        &__text {
+            background-color: $black;
+            padding: 4px 12px;
+            color: $white;
+            font-size: 12px;
+            border-radius: 15px 15px 15px 2px;
+            @include media-breakpoint-down(sm) {
+                border-radius: 2px 15px 15px 15px;
+            }
+            @include media-breakpoint-down(xs) {
+                min-width: 120px;
+            }
+            span:not(.get-sale) {
+                display: inline;
+            }
+            span.get-sale {
+                display: none;
+            }
+        }
+    }
+    .quiz-slide {
+        &.quiz-sale-much {
+            .quiz__sale {
+                .quiz__sale__text {
+                    background-color: $primary;
+                    span:not(.get-sale) {
+                        display: none;
+                    }
+                    span.get-sale {
+                        display: inline;
+                    }
+                }
+            }
+        }
+    }
+    &__progress {
+        font-weight: bold;
+        min-width: 100px;
+        @include media-breakpoint-down(sm) {
+            min-width: 50px;
+            width: 50px;
+        }
+        @include media-breakpoint-up(xl) {
+            font-size: 25px;
+        }
+        @include media-breakpoint-up(lg) {
+            font-size: 23px;
+        }
+        @include media-breakpoint-up(sm) {
+            font-size: 21px;
+        }
+        @include media-breakpoint-up(xs) {
+            font-size: 18px;
+        }
+    }
+}

@@ -1,0 +1,82 @@
+.production {
+    @include media-breakpoint-up(lg) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    &__grid {
+        display: grid;
+        @include media-breakpoint-up(lg) {
+            gap: 57px;
+        }
+        @include media-breakpoint-up(md) {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+        @include media-breakpoint-up(xs) {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+    }
+    &__swiper {
+        overflow: hidden;
+        position: relative;
+        @include media-breakpoint-up(xl) {
+            margin-left: -50%;
+        }
+        @include media-breakpoint-up(xlg) {
+            margin-left: -26%;
+        }
+        @include media-breakpoint-up(lg) {
+            margin-left: -40%;
+        }
+        .swiper-slide {
+            a {
+                display: flex;
+                align-items: center;
+                position: relative;
+                padding-top: 40%;
+                img {
+                    max-height: none;
+                    max-width: none;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    inset: 0 0 0 0;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+        }
+        @include media-breakpoint-down(lg) {
+            .swiper-btns {
+                right: 30px;
+                bottom: 30px;
+                @include media-breakpoint-down(sm) {
+                    right: 15px;
+                    bottom: 15px;
+                }
+                & > * {
+                    height: 48px;
+                    width: 48px;
+                }
+            }
+        }
+    }
+    &__content {
+        &__text {
+            max-width: 600px;
+            p {
+                font-size: 16px;
+            }
+        }
+        .btn {
+            margin-top: 36px;
+            @include media-breakpoint-down(md) {
+                margin-top: 25px;
+            }
+        }
+    }
+}

@@ -1,0 +1,190 @@
+.kitchen-product {
+    position: relative;
+    overflow: hidden;
+    &__content {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+        position: relative;
+        z-index: 3;
+        padding: 25px 21px;
+        @include media-breakpoint-down(md) {
+            padding: 15px 13px;
+        }
+        @include media-breakpoint-down(sm) {
+            padding: 10px 8px;
+        }
+        color: $white;
+        .h5 {
+            font-weight: bold;
+            padding-top: 13px;
+            margin-top: 13px;
+            @include media-breakpoint-down(xs) {
+                font-size: 13px;
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                background-color: $primary-1;
+                height: 1px;
+                transform: translateY(-13px);
+            }
+        }
+    }
+    &__tags {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        order: -5;
+        opacity: 0;
+        transition: $trsn;
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 76px;
+        }
+        @include media-breakpoint-down(md) {
+            margin-bottom: 40px;
+        }
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 20px;
+        }
+        > * {
+            padding: 8px 18px;
+            font-weight: bold;
+            font-size: 12px;
+            border-radius: 15px 15px 15px 2px;
+            color: $black;
+            @include media-breakpoint-down(md) {
+                font-size: 9px;
+                padding: 3px 10px;
+            }
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+        .green-tag {
+            order: -1;
+        }
+    }
+    &__subtitle {
+        margin-top: 5px;
+        font-size: 14px;
+        font-weight: 500;
+        @include media-breakpoint-down(xs) {
+            font-size: 11px;
+        }
+    }
+    &__btns {
+        animation: KitchenBtnsOut alternate 1s ease-in-out;
+        margin-top: 19px;
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        opacity: 0;
+        width: 100%;
+        transition: $trsn;
+        order: -1;
+        @include media-breakpoint-down(sm) {
+            flex-wrap: wrap;
+            margin: 0 -3px;
+        }
+        a {
+            cursor: pointer;
+            pointer-events: none;
+            @include media-breakpoint-up(lg) {
+                padding: 17px 27px;
+            }
+            @include media-breakpoint-down(sm) {
+                font-size: 11px;
+                padding: 11px 16px;
+                margin: 3px;
+            }
+            &:first-child {
+                &:hover {
+                    background-color: $white-primary;
+                    border-color: $white-primary;
+                    color: $black;
+                }
+            }
+        }
+    }
+    &__bg {
+        z-index: 1;
+        position: absolute;
+        inset: 0 0 0 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: $trsn;
+        &:after {
+            content: "";
+            transition: $trsn;
+            position: absolute;
+            inset: 0 0 0 0;
+            z-index: 2;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.27) 44.32%, rgba(0, 0, 0, 0.71) 100%);
+            opacity: 0.6;
+        }
+    }
+    &__price {
+        font-size: 16px;
+        font-weight: 500;
+        &[data-discount] {
+            text-decoration-line: line-through;
+        }
+        &__discount {
+            @include media-breakpoint-up(xl) {
+                font-size: 22px;
+            }
+            @include media-breakpoint-up(md) {
+                font-size: 21px;
+            }
+            @include media-breakpoint-up(sm) {
+                font-size: 19px;
+            }
+            @include media-breakpoint-up(xs) {
+                font-size: 18px;
+            }
+            line-height: 1.2em;
+            font-weight: bold;
+        }
+    }
+
+    &.hoverin {
+        .kitchen-product__tags {
+            opacity: 1;
+        }
+        .kitchen-product__bg {
+            &:after {
+                backdrop-filter: blur(10px);
+                opacity: 1;
+            }
+        }
+        .kitchen-product__btns {
+            animation: KitchenBtnsIn alternate 1s ease-in-out;
+            opacity: 1;
+            order: 2;
+            a {
+                @include media-breakpoint-down(sm) {
+                    animation: KitchenBtnsInPoint alternate 0.8s ease-in-out;
+                    pointer-events: auto;
+                }
+            }
+        }
+    }
+}
+
+@keyframes KitchenBtnsInPoint {   
+0% {     
+    pointer-events: none;
+}   
+50% {     
+    pointer-events: none;
+} 
+100% {
+    pointer-events: auto;
+    }
+}

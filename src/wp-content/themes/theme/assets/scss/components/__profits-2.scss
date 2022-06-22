@@ -1,0 +1,53 @@
+.profits-2 {
+    @include media-breakpoint-up(lg) {
+        padding-bottom: 50px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-bottom: 25px;
+    }
+    &__grid {
+        display: grid;
+        @include media-breakpoint-up(lg) {
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1px;
+            padding-top: 42px;
+        }
+        @include media-breakpoint-up(xs) {
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1px;
+        }
+        @include media-breakpoint-down(sm) {
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        }
+        @include media-breakpoint-down(sm) {
+            padding-top: 15px;
+        }
+    }
+    &__item {
+        @include media-breakpoint-up(lg) {
+            padding: 30px;
+            &:nth-child(odd) {
+                background-color: $white-primary;
+            }
+            &:nth-child(even) {
+                outline: 1px solid #e3e3e3;
+            }
+        }
+        @include media-breakpoint-down(md) {
+            padding: 15px;
+            transition: $trsn;
+            outline: 1px solid #e3e3e3;
+            &:hover {
+                background-color: $white-primary;
+                outline: 1px solid transparent;
+            }
+        }
+        &__icon {
+            max-width: 80px;
+            margin-bottom: 30px;
+        }
+        &__heading {
+            font-weight: 500;
+        }
+    }
+}

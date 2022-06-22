@@ -1,0 +1,659 @@
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+}
+
+::-moz-selection {
+    background: $primary;
+    color: $white;
+    text-shadow: none;
+    -webkit-text-stroke: 0px transparent;
+}
+
+::selection {
+    background: $primary;
+    color: $white;
+    text-shadow: none;
+    -webkit-text-stroke: 0px transparent;
+}
+
+a {
+    text-decoration: none;
+    color: $primary-1;
+    transition: $trsn;
+    &:hover {
+        text-decoration: none;
+        color: $primary-1;
+    }
+}
+
+button {
+    cursor: pointer;
+}
+
+p {
+    margin: 0;
+}
+
+html {
+    min-width: 320px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: $white;
+    font-size: 14px;
+    font-weight: 400;
+    color: $color-text;
+    font-family: "Montserrat", sans-serif, Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    text-align: left;
+    overflow-x: hidden;
+    overflow-y: visible;
+    min-width: 320px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @include media-breakpoint-down(md) {
+        &.menu-toggled {
+            overflow: hidden;
+        }
+    }
+}
+
+.screen-page {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.b-primary {
+    strong {
+        color: $primary;
+    }
+}
+
+.fancybox-slide--video {
+    @include media-breakpoint-down(md) {
+        padding: 15px !important;
+    }
+}
+
+// Container
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    @include make-container();
+    width: 100%;
+}
+
+// Font-size
+h1,
+.h1 {
+    @include media-breakpoint-up(xl) {
+        font-size: 40px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 35px;
+    }
+    @include media-breakpoint-up(sm) {
+        font-size: 34px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 32px;
+    }
+    line-height: 1.2em;
+    font-weight: bold;
+}
+
+h2,
+.h2 {
+    @include media-breakpoint-up(xl) {
+        font-size: 36px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 32px;
+    }
+    @include media-breakpoint-up(sm) {
+        font-size: 28px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 28px;
+    }
+    line-height: 1.2em;
+    font-weight: bold;
+}
+
+h3,
+.h3 {
+    @include media-breakpoint-up(xl) {
+        font-size: 26px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 24px;
+    }
+    @include media-breakpoint-up(sm) {
+        font-size: 21px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 20px;
+    }
+    font-weight: normal;
+    line-height: 1.2em;
+}
+
+h4,
+.h4 {
+    @include media-breakpoint-up(xl) {
+        font-size: 22px;
+    }
+    @include media-breakpoint-up(md) {
+        font-size: 21px;
+    }
+    @include media-breakpoint-up(sm) {
+        font-size: 19px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 18px;
+    }
+    line-height: 1.2em;
+    font-weight: normal;
+}
+
+h5,
+.h5 {
+    @include media-breakpoint-up(md) {
+        font-size: 20px;
+    }
+    @include media-breakpoint-up(sm) {
+        font-size: 15px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 14px;
+    }
+    line-height: 1.4em;
+    font-weight: normal;
+}
+
+h6,
+.h6 {
+    @include media-breakpoint-up(xl) {
+        font-size: 16px;
+    }
+    @include media-breakpoint-up(md) {
+        font-size: 14px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 13px;
+    }
+    line-height: 1.4em;
+    font-weight: normal;
+}
+
+// ========================================================
+// color-wysiwyg
+// ========================================================
+.primary-color-wysiwyg {
+    color: #f03636;
+}
+.text-color-wysiwyg {
+    color: #858585;
+}
+.green-color-wysiwyg {
+    color: #4eba45;
+}
+.primary-bg-color-wysiwyg {
+    background-color: #f03636;
+    color: white;
+    margin: 0 -7px;
+    padding: 0 7px;
+}
+
+// ========================================================
+// Ajax styles
+// ========================================================
+
+.btn-load-more {
+    width: 100%;
+    background: $white-primary;
+    color: $color-text;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: $trsn;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 22px;
+    line-height: 1.2em;
+    cursor: pointer;
+    &:hover {
+        background: $gray-primary;
+        &:before {
+            background-color: $gray-primary;
+        }
+    }
+    &:before {
+        content: "";
+        position: relative;
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+        min-height: 60px;
+        transition: $trsn;
+        border-right: 4px solid $white;
+        margin-right: 28px;
+        background-color: $white-primary;
+        background-position: center;
+        background-size: 24px 24px;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.5 9L12 16.5L4.5 9' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        @include media-breakpoint-down(md) {
+            margin-right: 15px;
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            min-height: 50px;
+        }
+    }
+}
+
+// ========================================================
+// Styles Swiper
+// ========================================================
+
+.swiper-btns {
+    right: 32px;
+    bottom: 32px;
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    > *:first-child {
+        margin-right: 10px;
+    }
+}
+.swiper-prev-custom,
+.swiper-next-custom {
+    position: relative;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $trsn;
+    cursor: pointer;
+    @include media-breakpoint-up(lg) {
+        height: 72px;
+        width: 72px;
+    }
+    @include media-breakpoint-up(xs) {
+        height: 48px;
+        width: 48px;
+    }
+    &:hover {
+        background-color: $gray-primary;
+    }
+    &:before {
+        content: "";
+        display: block;
+        background-position: center;
+        background-size: cover;
+        height: 32px;
+        width: 32px;
+        background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 26L10 16L20 6' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    }
+    @include media-breakpoint-down(md) {
+        position: relative;
+        left: 0;
+        right: 0;
+        margin: 0 10px;
+    }
+}
+.swiper-prev-custom {
+    left: 0;
+    border: 1px solid $white;
+    background-color: transparent;
+    &:hover {
+        background-color: white;
+        &:before {
+            filter: invert(1);
+        }
+    }
+}
+.swiper-next-custom {
+    right: 0;
+    border: 1px solid transparent;
+    &:before {
+        transform: rotateZ(180deg);
+        filter: invert(1);
+    }
+}
+
+// ========================================================
+// Styles site
+// ========================================================
+
+.trsn {
+    transition: $trsn;
+}
+
+.padding-top-heading {
+    @include media-breakpoint-up(xlg) {
+        padding-top: 200px;
+    }
+    @include media-breakpoint-up(lg) {
+        padding-top: 170px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-top: 120px;
+    }
+}
+
+.btn {
+    display: inline-block;
+    color: $white;
+    text-decoration: none;
+    text-align: center;
+    background: $primary;
+    transition: $trsn;
+    font-weight: 500;
+    line-height: 1.12em;
+    border-radius: 60px;
+    @include media-breakpoint-up(lg) {
+        padding: 26px 37px 26px;
+        font-size: 16px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 16px;
+        padding: 20px 27px 20px;
+    }
+    &:hover,
+    &:active {
+        background: $primary-btn-hover;
+        color: $white;
+    }
+    &:active {
+        transform: translateY(3px);
+    }
+    &.btn--outline {
+        background-color: transparent;
+        border: 1px solid $primary;
+        color: $black;
+        &.btn--white {
+            border-color: $white;
+            color: $white;
+        }
+    }
+}
+// ========================================================
+// page-default
+// ========================================================
+.page-default {
+    &__content {
+        font-size: 16px;
+        p {
+            margin-bottom: 1em;
+        }
+    }
+}
+
+// ========================================================
+// 404 page
+// ========================================================
+
+.page-404 {
+    position: relative;
+    @include media-breakpoint-up(lg) {
+        padding-bottom: 100px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-bottom: 60px;
+    }
+    &__flex {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        @include media-breakpoint-down(md) {
+            flex-wrap: wrap-reverse;
+            padding-top: 20px;
+        }
+    }
+    &__img {
+        display: flex;
+        align-items: center;
+        padding-top: 20px;
+        &:after {
+            content: "";
+            z-index: -1;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            max-width: 831px;
+            background-color: $white-primary;
+        }
+        @include media-breakpoint-down(md) {
+            padding-bottom: 20px;
+        }
+        svg {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            path {
+                fill: #e4e4e4;
+            }
+        }
+    }
+    .h4 {
+        font-weight: normal;
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 40px;
+        }
+        @include media-breakpoint-up(xs) {
+            margin-bottom: 20px;
+        }
+    }
+    &__content {
+        padding-top: 20px;
+        @include media-breakpoint-up(lg) {
+            max-width: 50%;
+        }
+        @include media-breakpoint-down(md) {
+            padding-top: 0;
+        }
+        &__bread {
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 60px;
+            }
+            @include media-breakpoint-up(xs) {
+                margin-bottom: 25px;
+            }
+            a {
+                display: inline-block;
+                transition: $trsn;
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
+
+// ========================================================
+// .paddings-hero-top
+// ========================================================
+
+.paddings-hero-top {
+    @include media-breakpoint-up(lg) {
+        padding-top: 126px;
+    }
+    @include media-breakpoint-up(md) {
+        padding-top: 100px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-top: 70px;
+    }
+}
+
+// ========================================================
+// breadcrumbs
+// ========================================================
+#breadcrumbs {
+    text-transform: lowercase;
+    font-size: 12px;
+    color: rgba($color: $color-text, $alpha: 0.4);
+    margin-bottom: 17px;
+    font-weight: 500;
+    a {
+        color: inherit;
+        &:hover {
+            color: $color-text;
+        }
+    }
+    > span > span > *:not(:first-child) {
+        margin-left: 14px;
+    }
+    > span > span > *:not(:last-child) {
+        &:after {
+            content: "";
+            margin-left: 14px;
+            display: inline-block;
+            width: 7px;
+            height: 10px;
+            background-position: center;
+            background-size: auto;
+            background-repeat: no-repeat;
+            opacity: 0.4;
+            background-image: url("data:image/svg+xml,%3Csvg width='7' height='10' viewBox='0 0 7 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.75 9.375L1.375 5L5.75 0.625' stroke='%23263959' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        }
+    }
+}
+
+// ========================================================
+// Thanks page
+// ========================================================
+.thanks {
+    @include media-breakpoint-up(lg) {
+        padding-bottom: 50px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-bottom: 30px;
+    }
+    border-bottom: 1px solid #eaeaea;
+    position: relative;
+    &__wrapper {
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        z-index: 1;
+        @include media-breakpoint-down(md) {
+            flex-wrap: wrap-reverse;
+            overflow: hidden;
+        }
+    }
+    &__content {
+        color: $black;
+        @include media-breakpoint-up(lg) {
+            padding: 60px 0;
+            flex: 0 1 40%;
+        }
+        @include media-breakpoint-up(xs) {
+            padding: 30px 0;
+        }
+    }
+    &__h2 {
+        font-weight: normal;
+        font-size: 16px;
+        @include media-breakpoint-up(lg) {
+            margin: 32px 0;
+        }
+        @include media-breakpoint-up(xs) {
+            margin: 20px 0;
+        }
+        @include media-breakpoint-down(sm) {
+            br {
+                display: none;
+            }
+        }
+    }
+    &__img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        @include media-breakpoint-up(lg) {
+            margin-left: 30px;
+        }
+        @include media-breakpoint-down(md) {
+            margin-top: 20px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            @include media-breakpoint-up(lg) {
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 50%;
+                max-width: 831px;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+}
+
+// ========================================================
+// Contacts form 7 and inputs form styles
+// ========================================================
+.wpcf7-not-valid-tip,
+.wpcf7-response-output,
+.wpcf7 .ajax-loader {
+    display: none;
+}
+
+input {
+    padding: 0;
+    margin: 0;
+    appearance: none;
+    border: 0;
+    max-width: 100%;
+    min-width: auto;
+}
+
+.polka {
+    h1 {
+        font-weight: normal;
+    }
+    .polka__blocks {
+        display: flex;
+        .polka__blocks__item {
+            border: 1px solid #EAE6FF;
+            svg {
+                path {
+                    stroke: black;
+                    fill: red;
+                }
+            }
+        }
+        .polka__blocks__item:not(:last-child) {
+            margin-right: 15px;
+        }
+    }
+}
